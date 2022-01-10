@@ -35,18 +35,33 @@ export default function QuestionProvider({ children }) {
     }
   };
 
-  const saveQuestions = () => {
+  const saveQuestions = (filename = 'questions.json') => {
     const new_questions = [...questions];
     for (const q of new_questions) {
       if (!q["id"]) {
         q["id"] = v4();
       }
     }
+
+    const data = new Blob([JSON.stringify(questions)], {type: 'type/json'});
+    const jsonURL = window.URL.createObjectURL(data);
+    const link = document.createElement('a');
+    document.body.appendChild(link);
+    link.href = jsonURL;
+    link.setAttribute('download', filename);
+    link.click();
+    document.body.removeChild(link);
+
+    console.log(`saveQuestions:${filename}`)
   };
+
+  const loadQuestions = (buff) => {
+    setQuestion(buff);
+  }
 
   return (
     <QuestionContext.Provider
-      value={{ getQuestion, addQuestion, saveQuestions }}
+      value={{ getQuestion, addQuestion, saveQuestions, loadQuestions }}
     >
       {children}
     </QuestionContext.Provider>

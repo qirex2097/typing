@@ -1,18 +1,6 @@
 [
     {
-        "question": "彼はいわゆる「生き字引」だ。",
-        "answer": "He is what we call a \"walking dictionary.\""
-    },
-    {
-        "question": "私は何も言わなかった。それが彼をいっそう怒らせた。",
-        "answer": "I said nothing, which  made him angrier."
-    },
-    {
-        "question": "「コーヒーが好きです」「私も（好きです）」",
-        "answer": "\"I like coffee.\"---\"So do I.\""
-    },
-    {
-        "question": "あなたはＮＡＳＡが何を表すか知っていますか。",
-        "answer": "Do you know what NASA stands for?"
+        "question": "ファイルをドラッグしてください。",
+        "answer": "Drag the file."
     }
 ]

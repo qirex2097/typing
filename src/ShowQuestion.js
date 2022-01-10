@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddQuestion from "./AddQuestion";
+import LoadQuestion from "./LoadQuestion"
 import { useQuestion } from "./QuestionProvider";
 
 export default function ShowQuestion() {
@@ -85,10 +86,11 @@ export default function ShowQuestion() {
   };
 
   const componentList = [];
+  componentList.push(<LoadQuestion key={1}/>);
   if (position === answer_text.length) {
     componentList.push(
       <AddQuestion
-        key={1}
+        key={2}
         default_question={question_text}
         default_answer={answer_text}
         id={id}

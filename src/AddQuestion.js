@@ -8,7 +8,7 @@ export default function AddQuestion({
 }) {
   const [question, setQuestion] = useInput(default_question);
   const [answer, setAnswer] = useInput(default_answer);
-  const { addQuestion } = useQuestion();
+  const { addQuestion, saveQuestions } = useQuestion();
 
   const submit = (e) => {
     e.preventDefault();
@@ -18,17 +18,26 @@ export default function AddQuestion({
     setAnswer();
   };
 
+  const save = (e) => {
+    e.preventDefault();
+    console.log(`save:${e.target.value}`);
+    saveQuestions();
+  }
+
   return (
-    <form onSubmit={submit}>
-      <div>
-        問題：
-        <input {...question} type="text" size="80" />
-      </div>
-      <div>
-        答え：
-        <input {...answer} type="text" size="80" />
-      </div>
-      <button>EDIT</button>
-    </form>
+    <>
+      <form onSubmit={submit}>
+        <div>
+          問題：
+          <input {...question} type="text" size="80" />
+        </div>
+        <div>
+          答え：
+          <input {...answer} type="text" size="80" />
+        </div>
+        <button>EDIT</button>
+      </form>
+      <button onClick={save}>SAVE</button>
+    </>
   );
 }
